@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive body mass index calculator.">
+  <title>Body Mass Index Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="hero-wrap">
+      <div class="hero">
+        <a class="brand" href="#" aria-label="BMI Calculator home">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+        </a>
+        <div class="hero-copy">
+          <h1>Body Mass<br class="desktop-break"> Index Calculator</h1>
+          <p>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
+        </div>
+      </div>
+
+      <section class="calculator-card" aria-labelledby="calculator-title">
+        <h2 id="calculator-title">Enter your details below</h2>
+        <fieldset class="unit-choice">
+          <legend class="visually-hidden">Choose measurement units</legend>
+          <label class="radio-option">
+            <input type="radio" name="unit" value="metric" checked>
+            <span class="custom-radio"></span><span>Metric</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="unit" value="imperial">
+            <span class="custom-radio"></span><span>Imperial</span>
+          </label>
+        </fieldset>
+
+        <form id="bmi-form" novalidate>
+          <div class="measurement-grid" id="measurement-fields">
+            <div class="field-group">
+              <label for="height-cm">Height</label>
+              <div class="input-wrap">
+                <input id="height-cm" name="height" type="number" min="1" step="any" placeholder="e.g. 175" inputmode="decimal" required>
+                <span class="unit-label">cm</span>
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="weight-kg">Weight</label>
+              <div class="input-wrap">
+                <input id="weight-kg" name="weight" type="number" min="1" step="any" placeholder="e.g. 70" inputmode="decimal" required>
+                <span class="unit-label">kg</span>
+              </div>
+            </div>
+          </div>
+          <p class="error-message" id="error-message" role="alert" hidden>Please enter a valid height and weight greater than zero.</p>
+        </form>
+
+        <div class="result-panel" aria-live="polite">
+          <div class="result-intro" id="result-intro">
+            <h3>Welcome!</h3>
+            <p>Enter your height and weight and you'll see your BMI result here.</p>
+          </div>
+          <div class="result-content" id="result-content" hidden>
+            <div>
+              <p class="result-label">Your BMI is...</p>
+              <output class="bmi-number" id="bmi-number">22.5</output>
+            </div>
+            <p class="result-description" id="result-description"></p>
+            <p class="healthy-range" id="healthy-range"></p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="meaning-section">
+      <div class="person-illustration" aria-hidden="true">
+        <div class="person-head"></div><div class="person-body"></div>
+        <div class="person-arm arm-left"></div><div class="person-arm arm-right"></div>
+        <div class="person-leg leg-left"></div><div class="person-leg leg-right"></div>
+        <div class="illustration-orbit"></div>
+      </div>
+      <div class="meaning-copy">
+        <h2>What your BMI result means</h2>
+        <p>A BMI result can help you understand whether your weight is in a healthy range for your height. It is one useful measure, but it doesn't tell the whole story. Factors like muscle mass, age, and other aspects of your health matter too.</p>
+      </div>
+    </section>
+
+    <section class="tips" aria-label="Healthy habits">
+      <article class="tip-card">
+        <div class="tip-icon icon-eating" aria-hidden="true">✦</div>
+        <h3>Healthy eating</h3>
+        <p>Make balanced food choices with a variety of fruits, vegetables, whole grains, and protein sources to support your overall health.</p>
+      </article>
+      <article class="tip-card">
+        <div class="tip-icon icon-exercise" aria-hidden="true">↗</div>
+        <h3>Regular exercise</h3>
+        <p>Find movement you enjoy. Regular physical activity can support heart health, strength, energy, and general well-being.</p>
+      </article>
+      <article class="tip-card">
+        <div class="tip-icon icon-sleep" aria-hidden="true">☾</div>
+        <h3>Adequate sleep</h3>
+        <p>Consistent, restful sleep helps your body recover and supports your mood, concentration, and overall health.</p>
+      </article>
+    </section>
+
+    <section class="limitations">
+      <div class="limitations-intro">
+        <h2>Limitations of BMI</h2>
+        <p>BMI is a helpful screening tool, but it should not be used on its own to diagnose health conditions. Consider these additional factors when assessing health.</p>
+      </div>
+      <article class="limitation-card gender">
+        <div class="limitation-heading"><span class="small-icon">♙</span><h3>Gender</h3></div>
+        <p>BMI does not directly account for differences in body composition or how fat is distributed between individuals.</p>
+      </article>
+      <article class="limitation-card age">
+        <div class="limitation-heading"><span class="small-icon">◷</span><h3>Age</h3></div>
+        <p>Age can influence body composition. BMI is interpreted differently for children and teens than for adults.</p>
+      </article>
+      <article class="limitation-card muscle">
+        <div class="limitation-heading"><span class="small-icon">⌁</span><h3>Muscle</h3></div>
+        <p>People with more muscle may have a higher BMI even when they have a healthy level of body fat.</p>
+      </article>
+      <article class="limitation-card pregnancy">
+        <div class="limitation-heading"><span class="small-icon">♡</span><h3>Pregnancy</h3></div>
+        <p>BMI is not intended to assess weight status during pregnancy. Ask a healthcare professional for guidance.</p>
+      </article>
+      <article class="limitation-card race">
+        <div class="limitation-heading"><span class="small-icon">◎</span><h3>Race and ethnicity</h3></div>
+        <p>Health risks can vary between populations, so BMI thresholds may not reflect every individual's risk equally.</p>
+      </article>
+    </section>
+    <footer><p>Built as a learning project inspired by a <a href="https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T" target="_blank" rel="noreferrer">Frontend Mentor challenge</a>.</p></footer>
+  </main>
+</body>
+</html>
